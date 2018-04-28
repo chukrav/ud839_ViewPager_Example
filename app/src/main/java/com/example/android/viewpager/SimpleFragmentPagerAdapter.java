@@ -15,6 +15,7 @@
  */
 package com.example.android.viewpager;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -41,7 +42,12 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         }else if (position == 4) {
             return new ThursdayFragment();
         } else {
-            return new FridayFragment();
+            Bundle bundl = new Bundle();
+            String day = "-Friday-";
+            bundl.putString("day",day);
+            Fragment dv = new DayFragment();
+            dv.setArguments(bundl);
+            return dv;
         }
     }
 
