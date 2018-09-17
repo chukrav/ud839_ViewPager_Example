@@ -17,6 +17,8 @@ package com.example.android.viewpager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +28,25 @@ import android.view.ViewGroup;
  */
 public class MondayFragment extends Fragment {
 
+    private GreenAdapter mAdapter;
+    private RecyclerView mNumbersList;
+    private static final int NUM_LIST_ITEMS = 100;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_monday, container, false);
+
+//        mNumbersList = (RecyclerView) findViewById(R.id.rv_numbers);
+        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+        View rootView = inflater.inflate(R.layout.fragment_monday, container, false);
+
+        mNumbersList = (RecyclerView) rootView.findViewById(R.id.rv_numbers);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mNumbersList.setLayoutManager(layoutManager);
+        mNumbersList.setHasFixedSize(true);
+        mNumbersList.setAdapter(mAdapter);
+
+//        return inflater.inflate(R.layout.fragment_monday, container, false);
+//        return rootView;
+        return mNumbersList;
     }
 }
