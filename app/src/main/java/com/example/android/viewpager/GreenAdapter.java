@@ -52,7 +52,7 @@ public class GreenAdapter extends RecyclerView.Adapter <GreenAdapter.ItemViewHol
         }
 
         void bind(int listIndex) {
-            listItem.setText(String.valueOf(listIndex));
+            listItem.setText(String.valueOf(listIndex) + " ***");
         }
     }
 

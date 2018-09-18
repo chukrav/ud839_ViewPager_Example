@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:fontFamily="monospace"
-        android:textSize="42sp"
+        android:textSize="36sp"
         tools:text="#42" />
 
 </FrameLayout>
