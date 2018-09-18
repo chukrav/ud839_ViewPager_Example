@@ -45,14 +45,17 @@ public class GreenAdapter extends RecyclerView.Adapter <GreenAdapter.ItemViewHol
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
         TextView listItem;
+        TextView weightItem;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             listItem = (TextView) itemView.findViewById(R.id.tv_item);
+            weightItem = (TextView) itemView.findViewById(R.id.tv_weight);
         }
 
         void bind(int listIndex) {
             listItem.setText(String.valueOf(listIndex) + " ***");
+            weightItem.setText("2 kg");
         }
     }
 
