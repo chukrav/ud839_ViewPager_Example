@@ -34,7 +34,8 @@ public class MondayFragment extends Fragment {
 
     private GreenAdapter mAdapter;
     private RecyclerView mNumbersList;
-    private static final int NUM_LIST_ITEMS = 100;
+//    private static final int NUM_LIST_ITEMS = 100;
+    private String categoryColor = "#b2ff59";
 
 //    private enum Ranks {
 //        VEGETABLE, MILK, CEREALS, WATER,
@@ -59,7 +60,8 @@ public class MondayFragment extends Fragment {
         vegItemsList.add(new Item("oranges",3.0,2.0, Item.Ranks.VEGETABLE));
 
 //        mNumbersList = (RecyclerView) findViewById(R.id.rv_numbers);
-        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+//        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+        mAdapter = new GreenAdapter(vegItemsList,categoryColor);
         View rootView = inflater.inflate(R.layout.fragment_monday, container, false);
 
         mNumbersList = (RecyclerView) rootView.findViewById(R.id.rv_numbers);
