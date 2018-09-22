@@ -23,6 +23,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.viewpager.data.Item;
+
+import java.util.ArrayList;
+
 /**
  * Fragment that displays "Monday".
  */
@@ -32,8 +36,27 @@ public class MondayFragment extends Fragment {
     private RecyclerView mNumbersList;
     private static final int NUM_LIST_ITEMS = 100;
 
+//    private enum Ranks {
+//        VEGETABLE, MILK, CEREALS, WATER,
+//        ALCOHOL,BREAD,HOUSEHOLDS, OIL, DUNNO
+//    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        final ArrayList<Item> vegItemsList = new ArrayList<Item>();
+        vegItemsList.add(new Item("tomato",3.0,2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("cucumbers",3.0,2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("pepper",3.0,2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("cabbage",3.0,2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("beet",3.0,1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("carrot",3.0,2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("salad-hasa",6.0,1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("salad-baby",6.0,1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("spring onions",6.0,0.5, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("onion",3.0,1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("apples",3.0,2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("oranges",3.0,2.0, Item.Ranks.VEGETABLE));
 
 //        mNumbersList = (RecyclerView) findViewById(R.id.rv_numbers);
         mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
