@@ -40,5 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
+
     }
 }

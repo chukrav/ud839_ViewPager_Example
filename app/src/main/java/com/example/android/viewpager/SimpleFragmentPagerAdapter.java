@@ -25,26 +25,30 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
+    private FragmentManager mFm;
+
     public SimpleFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
+        mFm = fm;
     }
 
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new SundayFragment();
-        } else if (position == 1){
-            return new MondayFragment();
+            MilkFragment sf = new MilkFragment();
+            return sf;
+        } else if (position == 1) {
+            return new VegetablesFragment();
         } else if (position == 2) {
-            return new TuesdayFragment();
+            return new MeatFragment();
         } else if (position == 3) {
-            return new WednesdayFragment();
-        }else if (position == 4) {
-            return new ThursdayFragment();
+            return new WaterFragment();
+        } else if (position == 4) {
+            return new BreadFragment();
         } else {
             Bundle bundl = new Bundle();
             String day = "-Friday-";
-            bundl.putString("day",day);
+            bundl.putString("day", day);
             Fragment dv = new DayFragment();
             dv.setArguments(bundl);
             return dv;
@@ -53,6 +57,6 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 7;
+        return 5;
     }
 }

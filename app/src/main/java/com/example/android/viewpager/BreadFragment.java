@@ -22,12 +22,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Fragment that displays "Tuesday".
+ * Fragment that displays "Thursday".
  */
-public class TuesdayFragment extends Fragment {
+public class BreadFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tuesday, container, false);
+        return inflater.inflate(R.layout.fragment_bread, container, false);
     }
 }

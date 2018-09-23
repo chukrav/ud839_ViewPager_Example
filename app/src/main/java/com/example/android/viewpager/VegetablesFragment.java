@@ -30,48 +30,49 @@ import java.util.ArrayList;
 /**
  * Fragment that displays "Monday".
  */
-public class MondayFragment extends Fragment {
+public class VegetablesFragment extends Fragment {
 
     private GreenAdapter mAdapter;
     private RecyclerView mNumbersList;
-//    private static final int NUM_LIST_ITEMS = 100;
+    //    private static final int NUM_LIST_ITEMS = 100;
     private String categoryColor = "#b2ff59";
-
-//    private enum Ranks {
-//        VEGETABLE, MILK, CEREALS, WATER,
-//        ALCOHOL,BREAD,HOUSEHOLDS, OIL, DUNNO
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         final ArrayList<Item> vegItemsList = new ArrayList<Item>();
-        vegItemsList.add(new Item("tomato",3.0,2.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("cucumbers",3.0,2.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("pepper",3.0,2.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("cabbage",3.0,2.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("beet",3.0,1.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("carrot",3.0,2.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("salad-hasa",6.0,1.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("salad-baby",6.0,1.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("spring onions",6.0,0.5, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("onion",3.0,1.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("apples",3.0,2.0, Item.Ranks.VEGETABLE));
-        vegItemsList.add(new Item("oranges",3.0,2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("tomato", 3.0, 2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("cucumbers", 3.0, 2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("pepper", 3.0, 2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("cabbage", 3.0, 2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("beet", 3.0, 1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("carrot", 3.0, 2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("lettuce-hasa", 6.0, 1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("lettuce-baby", 6.0, 1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("spring onions", 6.0, 0.5, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("onion", 3.0, 1.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("apples", 3.0, 2.0, Item.Ranks.VEGETABLE));
+        vegItemsList.add(new Item("oranges", 3.0, 2.0, Item.Ranks.VEGETABLE));
 
 //        mNumbersList = (RecyclerView) findViewById(R.id.rv_numbers);
 //        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
-        mAdapter = new GreenAdapter(vegItemsList,categoryColor);
-        View rootView = inflater.inflate(R.layout.fragment_monday, container, false);
+        mAdapter = new GreenAdapter(vegItemsList, categoryColor);
+        View rootView = inflater.inflate(R.layout.fragment_vegetables, container, false);
 
         mNumbersList = (RecyclerView) rootView.findViewById(R.id.rv_numbers);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mNumbersList.setLayoutManager(layoutManager);
         mNumbersList.setHasFixedSize(true);
         mNumbersList.setAdapter(mAdapter);
-
-//        return inflater.inflate(R.layout.fragment_monday, container, false);
+//        getActivity().setTitle("Vegetables");
+//        return inflater.inflate(R.layout.fragment_vegetables, container, false);
 //        return rootView;
         return mNumbersList;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+//        getActivity().setTitle("Vegetables");
     }
 }

@@ -4,7 +4,7 @@ public class Item {
 
     public static enum Ranks {
         VEGETABLE, MILK, CEREALS, WATER,
-        ALCOHOL,BREAD,HOUSEHOLDS, OIL, DUNNO
+        ALCOHOL,BREAD,HOUSEHOLDS, OIL, MEAT, DUNNO
     }
 
     private String name;
