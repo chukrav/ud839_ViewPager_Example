@@ -30,7 +30,7 @@ import java.util.ArrayList;
 /**
  * Fragment that displays "Monday".
  */
-public class VegetablesFragment extends Fragment {
+public class VegetablesFragment extends Fragment implements GreenAdapter.ItemClickListener {
 
     private GreenAdapter mAdapter;
     private RecyclerView mNumbersList;
@@ -56,7 +56,7 @@ public class VegetablesFragment extends Fragment {
 
 //        mNumbersList = (RecyclerView) findViewById(R.id.rv_numbers);
 //        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
-        mAdapter = new GreenAdapter(vegItemsList, categoryColor);
+        mAdapter = new GreenAdapter(this, vegItemsList, categoryColor);
         View rootView = inflater.inflate(R.layout.fragment_vegetables, container, false);
 
         mNumbersList = (RecyclerView) rootView.findViewById(R.id.rv_numbers);
@@ -78,5 +78,10 @@ public class VegetablesFragment extends Fragment {
     public void onResume() {
         super.onResume();
 //        getActivity().setTitle("Vegetables");
+    }
+
+    @Override
+    public void onItemClickListener(int itemId) {
+
     }
 }

@@ -23,12 +23,15 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ItemViewHold
     private ArrayList<Item> mItemsList;
     private int mBgColor;
 
+    final private ItemClickListener mItemClickListener;
 
-    public GreenAdapter(ArrayList<Item> itemsList, String bgColor) {
+
+    public GreenAdapter(ItemClickListener listener, ArrayList<Item> itemsList, String bgColor) {
 //        mNumberItems = numberOfItems;
         mItemsList = itemsList;
         mNumberItems = itemsList.size();
         mBgColor = Color.parseColor(bgColor);
+        mItemClickListener = listener;
     }
 
     @NonNull
@@ -60,6 +63,19 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ItemViewHold
         return mNumberItems;
     }
 
+    public interface ItemClickListener {
+        void onItemClickListener(int itemId);
+    }
+
+    public ArrayList<Item> getListItems(){
+        return mItemsList;
+    }
+
+    public void setListItems(ArrayList<Item> list){
+        mItemsList = list;
+//        notifyDataSetChanged();
+    }
+
     class ItemViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
@@ -72,6 +88,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ItemViewHold
             listItem = (TextView) itemView.findViewById(R.id.tv_item);
             weightItem = (TextView) itemView.findViewById(R.id.tv_weight);
             selectedItem = (CheckBox) itemView.findViewById(R.id.checkBox);
+            itemView.setOnClickListener(this);
         }
 
 //        void bind(int listIndex) {
