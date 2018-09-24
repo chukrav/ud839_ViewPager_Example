@@ -64,9 +64,13 @@ public class VegetablesFragment extends Fragment {
         mNumbersList.setLayoutManager(layoutManager);
         mNumbersList.setHasFixedSize(true);
         mNumbersList.setAdapter(mAdapter);
-//        getActivity().setTitle("Vegetables");
-//        return inflater.inflate(R.layout.fragment_vegetables, container, false);
-//        return rootView;
+//      // ------ Check recyckler items checked !!!! ----
+//        int count = mNumbersList.getChildCount();
+//        GreenAdapter.ItemViewHolder holder =
+//                (GreenAdapter.ItemViewHolder) mNumbersList.findViewHolderForAdapterPosition(0);
+//        boolean isChecked = holder.selectedItem.isChecked();
+        //-----------------------------------------------
+
         return mNumbersList;
     }
 

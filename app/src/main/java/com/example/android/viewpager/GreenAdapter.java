@@ -4,16 +4,18 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.android.viewpager.data.Item;
 
 import java.util.ArrayList;
 
-public class GreenAdapter extends RecyclerView.Adapter <GreenAdapter.ItemViewHolder> {
+public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ItemViewHolder> {
 
     private static final String TAG = GreenAdapter.class.getSimpleName();
 
@@ -58,15 +60,18 @@ public class GreenAdapter extends RecyclerView.Adapter <GreenAdapter.ItemViewHol
         return mNumberItems;
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener {
 
         TextView listItem;
         TextView weightItem;
+        CheckBox selectedItem;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             listItem = (TextView) itemView.findViewById(R.id.tv_item);
             weightItem = (TextView) itemView.findViewById(R.id.tv_weight);
+            selectedItem = (CheckBox) itemView.findViewById(R.id.checkBox);
         }
 
 //        void bind(int listIndex) {
@@ -77,6 +82,11 @@ public class GreenAdapter extends RecyclerView.Adapter <GreenAdapter.ItemViewHol
         void bind(Item item) {
             listItem.setText(item.getName());
             weightItem.setText(String.valueOf(item.getAmount()));
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.d("ItemClick","Item clicked! Eee!");
         }
     }
 
