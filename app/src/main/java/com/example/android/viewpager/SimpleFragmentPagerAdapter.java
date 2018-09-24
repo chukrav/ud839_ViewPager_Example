@@ -15,6 +15,7 @@
  */
 package com.example.android.viewpager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,10 +27,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private FragmentManager mFm;
+    private Context mContext;
 
-    public SimpleFragmentPagerAdapter(FragmentManager fm) {
+    public SimpleFragmentPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mFm = fm;
+        mContext = context;
     }
 
     @Override
@@ -58,5 +61,21 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 5;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+//        return super.getPageTitle(position);
+        if (position == 0) {
+            return mContext.getString(R.string.category_milk);
+        } else if (position == 1) {
+            return mContext.getString(R.string.category_vegetable);
+        } else if (position == 2) {
+            return mContext.getString(R.string.category_meat);
+        } else if (position == 3){
+            return mContext.getString(R.string.category_water);
+        } else {
+            return mContext.getString(R.string.category_bread);
+        }
     }
 }
