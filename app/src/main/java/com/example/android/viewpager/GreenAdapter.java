@@ -104,6 +104,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ItemViewHold
         @Override
         public void onClick(View v) {
             Log.d("ItemClick","Item clicked! Eee!");
+//            int elementId = mItemsList.get(getAdapterPosition()).getId();
+            int elementId = getAdapterPosition();
+            mItemClickListener.onItemClickListener(elementId);
+
         }
     }
 
