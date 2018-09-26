@@ -21,8 +21,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.android.viewpager.data.Item;
 
@@ -71,8 +75,29 @@ public class VegetablesFragment extends Fragment implements GreenAdapter.ItemCli
 //                (GreenAdapter.ItemViewHolder) mNumbersList.findViewHolderForAdapterPosition(0);
 //        boolean isChecked = holder.selectedItem.isChecked();
         //-----------------------------------------------
+        setHasOptionsMenu(true);
 
         return mNumbersList;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+        getActivity().getMenuInflater().inflate(R.menu.main, menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                Toast.makeText(getActivity(), "Fragment.Menu item selected", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return false;
+        }
+
     }
 
     @Override
@@ -83,6 +108,6 @@ public class VegetablesFragment extends Fragment implements GreenAdapter.ItemCli
 
     @Override
     public void onItemClickListener(int itemId) {
-        Log.d("ItemClick","Item clicked! YYYYYEee!  " + itemId);
+        Log.d("ItemClick", "Item clicked! YYYYYEee!  " + itemId);
     }
 }
