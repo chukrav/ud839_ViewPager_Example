@@ -92,7 +92,7 @@ public class VegetablesFragment extends Fragment implements GreenAdapter.ItemCli
 //        return super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
             case R.id.action_refresh:
-                Toast.makeText(getActivity(), "Fragment.Menu item selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Vegetables.Menu item selected", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return false;
